@@ -365,7 +365,7 @@ color: rgb(56, 0, 0);
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url(/aseets/imgs/Bghero.jpg);
+    bazkground-image: ("/aseets/imgs/Bghero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -585,4 +585,5 @@ footer div a{
 footer p{
     margin-top: 1.4rem;
     font-size: 10px;
+
 }
