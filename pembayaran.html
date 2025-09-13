@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Halaman Pembayaran — kopinaga99</title>
+    <link rel="stylesheet" href="Css/pembayara.css">
+    <link rel="icon" type="imgs" href="aseets/imgs/menu/Logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 style="font-style: oblique;">kopi<span style="color: brown;">naga</span>99.</h2>
+        <h1>Silahkan untuk mencetak kode pembayaran</h1>
+
+        <div class="card grid">
+            <div>
+                <label>Nominal (Rp)</label>
+                <input id="nominal" type="number" placeholder="Contoh: 25000" value="25000" />
+
+                <label style="margin-top:12px">Panjang kode (angka)</label>
+                <input id="length" type="number" min="4" max="12" value="8" />
+
+                <label style="margin-top:12px">Prefix (opsional)</label>
+                <input id="prefix" type="text" placeholder="Contoh: INV-" />
+
+                <label style="margin-top:12px">Masa berlaku (menit)</label>
+                <input id="expiry" type="number" min="1" value="60" />
+
+                <div style="display:flex;gap:8px;margin-top:12px">
+                    <button id="generate" class="btn-cetak">Cetak Kode</button>
+                    <!-- <button id="generate10">Cetak 10</button> -->
+                </div>
+
+                <!-- <div style="margin-top:12px">
+                    <label class="small">Opsi penyimpanan</label>
+                    <div style="display:flex;gap:8px;margin-top:6px">
+                        <button id="exportJson">Export JSON</button>
+                        <button id="exportCsv">Export CSV</button>
+                        <button id="clearStorage">Hapus Semua (local)</button>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="preview">
+                <div class="code-box" id="codeDisplay" style="color: rgb(255, 255, 255);">- - - - - - - -</div>
+                <div class="row" style="width:100%">
+                    <button id="copyBtn">Salin Kode</button>
+                    <button id="printBtn">Cetak</button>
+                </div>
+
+                <div id="countdown" class="small muted" style="color: rgb(225, 0, 0); font-weight: bold;">Belum ada kode.</div>
+                <div id="countdown" class="small muted" style="font-size: 1rem; font-weight: bold; color: rgb(245, 232, 216);">Silahkan berikan kode ini ke kasir !</div>
+
+                <svg id="barcode"></svg>
+                <div id="qrcode"></div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="font-size:16px">Daftar Kode (local)</h2>
+            <div style="margin-top:12px;overflow:auto;max-height:260px">
+                <table id="codesTable">
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Nominal</th>
+                            <th>Dibuat</th>
+                            <th>Exp</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+     <p style="font-size: 10px; color: white; ">Created By Rizqi | <i class="bi bi-c-circle"></i> 2025</p>
+
+    <!-- Library: JsBarcode (untuk barcode) & QRCode.js -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="payment/payment.js"> </script>
+</body>
+
+</html>
